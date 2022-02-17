@@ -1,7 +1,10 @@
 package com.jc.jickbangcopy_20220217
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.jc.jickbangcopy_20220217.adapters.RoomAdapter
 import com.jc.jickbangcopy_20220217.datas.RoomData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,6 +34,16 @@ class MainActivity : AppCompatActivity() {
 
         roomAdapter = RoomAdapter(this, R.layout.room_list_item, mRoomList)
         roomListView.adapter = roomAdapter
+
+        roomListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedRoom = mRoomList[position]
+
+            val intent = Intent(this, ViewRoomDetailActivity::class.java)
+            intent.putExtra("price", clickedRoom.getFormattedPrice())
+            startActivity(intent)
+
+        }
 
 
     }
