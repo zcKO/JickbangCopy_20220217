@@ -11,4 +11,20 @@ class RoomData(
     val address: String,
     val floor: Int,
     val description: String
-)
+) {
+
+    // 층 수를 봐서 다른 문장을 얻는 함수
+    fun getFormattedFloor(): String {
+
+        if (this.floor > 0) {
+            return "${this.floor}층"
+        } else if (this.floor == 0) {
+            return "반지하"
+        } else {
+            // 음수를 양수로 변환
+            return "지하 ${-this.floor}층"
+        }
+
+    }
+
+}
