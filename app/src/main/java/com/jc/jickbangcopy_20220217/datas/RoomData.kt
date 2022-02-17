@@ -1,5 +1,8 @@
 package com.jc.jickbangcopy_20220217.datas
 
+import java.text.NumberFormat
+import java.util.*
+
 /**
  * @param price 방 가격
  * @param address 방 주소
@@ -12,6 +15,18 @@ class RoomData(
     val floor: Int,
     val description: String
 ) {
+
+    fun getFormattedPrice(): String {
+
+        if (this.price < 10000) {
+            return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price)
+        } else {
+            return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price)
+        }
+
+
+        return ""
+    }
 
     // 층 수를 봐서 다른 문장을 얻는 함수
     fun getFormattedFloor(): String {
