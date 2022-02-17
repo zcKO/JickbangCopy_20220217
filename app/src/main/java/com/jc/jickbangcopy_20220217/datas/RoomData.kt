@@ -24,7 +24,9 @@ class RoomData(
             val uk = this.price / 10000
             // 나머지 천 단위
             val rest = this.price % 10000
-            return "${uk}억 ${NumberFormat.getNumberInstance(Locale.KOREA).format(rest)}"
+
+            return "${uk}억 ${NumberFormat.getNumberInstance(Locale.KOREA).format(this.price)}"
+
         }
     }
 
