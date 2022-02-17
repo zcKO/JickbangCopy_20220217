@@ -46,7 +46,7 @@
                 tools:text="마포구 서교동, 1층" />
 
             <TextView
-                android:id="@+id/roomContentTextView"
+                android:id="@+id/roomDescTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
