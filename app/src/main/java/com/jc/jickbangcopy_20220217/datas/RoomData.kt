@@ -17,15 +17,15 @@ class RoomData(
 ) {
 
     fun getFormattedPrice(): String {
-
         if (this.price < 10000) {
             return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price)
         } else {
-            return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price)
+            // 26500 => 2억 6,500
+            val uk = this.price / 10000
+            // 나머지 천 단위
+            val rest = this.price % 10000
+            return "${uk}억 ${NumberFormat.getNumberInstance(Locale.KOREA).format(rest)}"
         }
-
-
-        return ""
     }
 
     // 층 수를 봐서 다른 문장을 얻는 함수
